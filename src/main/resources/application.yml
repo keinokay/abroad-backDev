@@ -13,9 +13,9 @@ spring:
       suffix: .jsp      
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/backDev?serverTimezone=Asia/Seoul
-    username: backDev
-    password: 1234
+    url: jdbc:mysql://database-1.cpu0oqm8wdha.ap-northeast-2.rds.amazonaws.com:3306/test?serverTimezone=Asia/Seoul
+    username: admin
+    password: admin2580!
     
   jpa:
     open-in-view: true
