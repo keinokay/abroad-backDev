@@ -94,6 +94,12 @@ public class SecurityConfig {
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowedOriginPatterns(Arrays.asList(
         		"http://localhost:8000",
+        		"http://localhost:4000",
+        		"http://localhost:4001",
+        		"http://localhost:4002",
+        		"http://localhost:4003",
+        		"http://localhost:4004",
+        		"http://localhost:4005",
         		"https://baekjeonghyeon.abroad0213.com",
         		"https://baekjeonghyun.abroad0213.com",
         		"https://baekjunghyun.abroad0213.com"
