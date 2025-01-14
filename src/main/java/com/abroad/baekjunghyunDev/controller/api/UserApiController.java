@@ -27,9 +27,12 @@ public class UserApiController {
 	
 	@GetMapping("/v1/me")
 	public ResponseDto<User> me(@AuthenticationPrincipal PrincipalDetail principal){
+		System.out.println("ME hihi");
 		if (principal != null && principal.getUser() != null) {
+			System.out.println("ME NOT NULLLLLLLLLLLLL");
 	        return new ResponseDto<User>(HttpStatus.OK.value(), principal.getUser());
 	    } else {
+	    	System.out.println("ME NULLLLLLLLLLLLL");
 	        return new ResponseDto<User>(HttpStatus.OK.value(), null);
 	    }
 	}

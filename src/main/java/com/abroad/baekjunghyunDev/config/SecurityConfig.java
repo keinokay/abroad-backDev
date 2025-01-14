@@ -104,7 +104,7 @@ public class SecurityConfig {
         		"https://baekjeonghyun.abroad0213.com",
         		"https://baekjunghyun.abroad0213.com"
         		)); 
-        configuration.setAllowedOriginPatterns(Collections.singletonList("https://*.abroad0213.com"));
+        //configuration.setAllowedOriginPatterns(Collections.singletonList("https://*.abroad0213.com"));
 
         configuration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "PATCH")); // 허용할 HTTP 메서드 설정
         configuration.setAllowCredentials(true); // 자격 증명 허용
