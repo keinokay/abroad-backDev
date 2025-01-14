@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.abroad.baekjunghyunDev.config.auth.PrincipalDetail;
+import com.abroad.baekjunghyunDev.config.schema.SchemaService;
 import com.abroad.baekjunghyunDev.dto.ResponseDto;
 import com.abroad.baekjunghyunDev.model.User;
 import com.abroad.baekjunghyunDev.service.UserService;
@@ -17,9 +18,16 @@ import com.abroad.baekjunghyunDev.service.UserService;
 public class UserApiController {
 	@Autowired
 	UserService userService;
+	@Autowired
+	SchemaService schemaService;
 	
 	@PostMapping("/v1/signupProc")
 	public ResponseDto<Integer> save(@RequestBody User user) {
+
+        System.out.println("스키마 변경 시도");
+        schemaService.changeSchema("b");
+
+        System.out.println("스키마 변경 성공");
 		// 실제로 DB에 insert 하고 return 해주면 됨
 		userService.회원가입(user);
 		return new ResponseDto<Integer>(HttpStatus.OK.value(), 1); 	// 회원가입 결과 Return
@@ -27,12 +35,9 @@ public class UserApiController {
 	
 	@GetMapping("/v1/me")
 	public ResponseDto<User> me(@AuthenticationPrincipal PrincipalDetail principal){
-		System.out.println("ME hihi");
 		if (principal != null && principal.getUser() != null) {
-			System.out.println("ME NOT NULLLLLLLLLLLLL");
 	        return new ResponseDto<User>(HttpStatus.OK.value(), principal.getUser());
 	    } else {
-	    	System.out.println("ME NULLLLLLLLLLLLL");
 	        return new ResponseDto<User>(HttpStatus.OK.value(), null);
 	    }
 	}
